@@ -1,0 +1,12 @@
+La pila TPC/IP => es una pila de protocolos que se utiliza para las comunicaciones en internet. Esta estructurada en
+varias capas, cada capa se implementa utilizando un protocolo diferente
+En el esquema de a continuacion se mostrara en que capa se puede estrucuturar y los protocolos que se utilizan
+
+Capa de aplicacion -> HTTP, SMTP, SMB
+Capa de transporte ->  TCP, UDP
+Capa de red -> IP
+Capa fisica -> Ethernet, wifi, fibra
+
+En la capa de transporte como vimo arriba existen dos protocolos el TCP y el UDP. Existe una diferencia entre estos
+dos protocolos y es que el TCP garantiza la recepcion de los mensajes y el UDP no
+
