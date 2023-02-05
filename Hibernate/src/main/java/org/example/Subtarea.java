@@ -4,4 +4,6 @@ import java.io.Serializable;
 
 public class Subtarea implements Serializable {
 
-    priv
+    private String nombre;
+    private int edad;
+    private String

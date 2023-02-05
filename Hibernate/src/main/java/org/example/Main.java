@@ -25,8 +25,6 @@ public class Main
         }
 
     }
-
-
     public static void crearTarea(){
         SessionFactory sessionFactory = new Configuration().configure().buildSessionFactory();
         Session session = sessionFactory.getCurrentSession();

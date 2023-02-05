@@ -29,7 +29,7 @@
 
         <!-- Entidades a mapear -->
         <mapping resource="org.example.Tarea"/>
-        <mapping resource="org.example.Subtarea"/>
+
 
     </session-factory>
 </hibernate-configuration>

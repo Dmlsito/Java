@@ -16,7 +16,10 @@ public class Servidor {
 
          try{
              server = new ServerSocket(9996);
+
              client = server.accept();
+             System.out.println(server.getLocalPort());
+             System.out.println(client.getPort());
              in = client.getInputStream();
              flujoIn = new DataInputStream(in);
              clientes = Integer.parseInt(flujoIn.readUTF());

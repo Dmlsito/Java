@@ -1,10 +1,10 @@
 package org.example;
 
+import java.io.IOException;
 import java.net.*;
 public class AltoNivel
 {
-    public static void main( String[] args )
-    {
+    public static void main( String[] args ) throws IOException {
         //Antes de comenzar a programar vamos a definir una serie de metodos de la clase InetAddress
 
         /*
@@ -22,17 +22,16 @@ public class AltoNivel
         String getHostName() -> Devuelve el nombre del host de un objeto InetAddress
 
         String getCanonicalHostName => Obtiene el nombre canonico completo de un objeto InetAddress
-         */
+
 
         InetAddress dir = null;
         try{
-
             InetAddress dir3 = InetAddress.getByName("localhost");
             System.out.println();
             System.out.println("===========================================");
             System.out.println("Salida para una url");
             dir = InetAddress.getByName("www.google.es");
-            System.out.println(dir.getHostName());
+            System.out.println(dir.toString());
             System.out.println("Direcciones IP para " + dir.getHostName());
             InetAddress[] direcciones = InetAddress.getAllByName(dir.getHostName());
             for(int i = 0; i < direcciones.length; i++){
@@ -68,5 +67,14 @@ public class AltoNivel
         System.out.println("toString(): " + dir.toString());
         //Obtengo el nombre verdadero del host del objeto dir
         System.out.println("getCanonicalHostName: " + dir.getCanonicalHostName() );
+    }
+    */
+
+     //InetAddress dir4 = InetAddress.getByName("www.google.es");
+        System.out.println(InetAddress.getByName("www.yahoo.es").getLocalHost());
+
+
+
+
     }
 }

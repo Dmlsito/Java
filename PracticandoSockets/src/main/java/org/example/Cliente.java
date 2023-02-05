@@ -13,10 +13,10 @@ public class Cliente {
         int clientsNumber = 0;
        try{
            client = new Socket("localhost", 9996);
+           System.out.println(client.getPort());
            out = client.getOutputStream();
            flujoOut = new DataOutputStream(out);
-           System.out.println(client.getPort());
-           System.out.println(client.getLocalPort());
+
            System.out.println("A cuantos clientes debera atender el servidor ?");
            clientsNumber = teclado.nextInt();
            flujoOut.writeUTF(Integer.toString(clientsNumber));
