@@ -15,6 +15,15 @@ public class Tarea implements Serializable {
 
     public Tarea(){}
 
+    public Tarea(String nombre, String descripcion, Timestamp fecha, String estado){
+        this.nombre = nombre;
+        this.descripcion = descripcion;
+        this.fecha = fecha;
+        this.estado = estado;
+    }
+
+
+
     public int getId(){
         return this.id;
     }
