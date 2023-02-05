@@ -1,10 +1,10 @@
 package org.example;
 
+import com.sun.media.jfxmediaimpl.HostUtils;
+
 import java.net.*;
-public class AltoNivel
-{
-    public static void main( String[] args )
-    {
+public class AltoNivel {
+    public static void main(String[] args) {
         //Antes de comenzar a programar vamos a definir una serie de metodos de la clase InetAddress
 
         /*
@@ -23,50 +23,30 @@ public class AltoNivel
 
         String getCanonicalHostName => Obtiene el nombre canonico completo de un objeto InetAddress
          */
-
-        InetAddress dir = null;
-        try{
-
-            InetAddress dir3 = InetAddress.getByName("localhost");
-            System.out.println();
-            System.out.println("===========================================");
-            System.out.println("Salida para una url");
-            dir = InetAddress.getByName("www.google.es");
-            System.out.println(dir.getHostName());
-            System.out.println("Direcciones IP para " + dir.getHostName());
-            InetAddress[] direcciones = InetAddress.getAllByName(dir.getHostName());
-            for(int i = 0; i < direcciones.length; i++){
-                System.out.println(direcciones[i].toString());
-                System.out.println("====================");
-            }
-
-        }catch(UnknownHostException e){
-            e.printStackTrace();
-        }
-
-        pruebaMetodos(dir);
+        pruebaMetodos();
 
 
     }
+    public static void pruebaMetodos () {
 
-    public static void pruebaMetodos(InetAddress dir){
+        InetAddress dir = null;
         InetAddress dir2 = null;
         try{
-            //A este objeto dir2 le estoy asignando el objeto InetAddress de esta maquina, que representa su direccion IP
-            dir2 = InetAddress.getLocalHost();
-            System.out.println("Metodo getLocalHost(): " + dir2);
-        }catch(UnknownHostException e){
-            e.printStackTrace();
+            dir = InetAddress.getByName("localhost");
+            dir2 = InetAddress.getByName("www.google.es");
+
+            System.out.println("El localhost de dir es: " + dir.getLocalHost());
+            System.out.println("El localhost de dir2 es: " + dir2.getLocalHost());
+            //Ambos tienen el mismo localHost porque se la direccion IP a la que hacen referencia es la de la maquina qeu esta ejecutando el programa
+            System.out.println(dir.getHostName());
+            System.out.println(dir2.getHostName());
+            System.out.println(dir.getHostAddress());
+            System.out.println(dir2.getHostAddress());
+
+
+        }catch(Exception e){
+            System.out.println("Ha ocurrido un error");
         }
 
-        //Usamos metodos de la clase
-        //Consigo el host de el objeto InetAddress
-        System.out.println("getHostName(): " + dir.getHostName());
-        //Consigo en forma de string la direccion IP del objeto InetAdress
-        System.out.println("getHostAddress(): " + dir.getHostAddress());
-        //Convierto a string el objeto InetAddress dir
-        System.out.println("toString(): " + dir.toString());
-        //Obtengo el nombre verdadero del host del objeto dir
-        System.out.println("getCanonicalHostName: " + dir.getCanonicalHostName() );
     }
 }
