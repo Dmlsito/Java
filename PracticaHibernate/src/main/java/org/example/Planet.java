@@ -15,7 +15,7 @@ public class Planet implements Serializable {
     private String name;
     private int designation;
     private String absoluteMagnitudeH;
-    private OrbitalPlanetData orbitalPlanetData;
+    private Set<OrbitalPlanetData> orbitalPlanetData;
 
     Planet(){}
 

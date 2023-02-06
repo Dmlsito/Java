@@ -21,7 +21,9 @@ public class CallApi {
         HttpURLConnection connection = null;
         OutputStreamWriter wr = null;
         String line = null;
-
+        //https://api.nasa.gov/neo/rest/v1/neo/browse?api_key=7RI1iO9XFonO0Rwl974iXQyUXeOEcS1tAcJKJsah
+        //La de pablo ->
+        //https://api.nasa.gov/neo/rest/v1/neo/browse?api_key=7RI1iO9XFonO0Rwl974iXQyUXeOEcS1tAcJKJsah
         try {
             // LLamar a API
             URL serverAddress = new URL("https://api.nasa.gov/neo/rest/v1/neo/browse?api_key=7RI1iO9XFonO0Rwl974iXQyUXeOEcS1tAcJKJsah");
