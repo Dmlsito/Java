@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate//Hibernate Mapping DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class name = "org.example.Suppliers" table = "dbo.Suppliers">
+        <id name = "supplierIdD" column = "supplierID">
+            <generator class = "native"></generator>
+        </id>
+        <property name = "companyName" type = "String" column = "CompanyName"></property>
+        <property name = "contactName" type = "String" column = "ContactName"></property>
+        <property name = "contactTitle" type = "String" column = "ContactTitle"></property>
+        <property name = "address" type = "String" column = "Address"></property>
+        <property name = "city" type = "String" column = "City"></property>
+        <property name = "region" type = "String" column = "Region"></property>
+        <property name = "postalCode" type = "String" column = "PostalCode"></property>
+        <property name = "country" type = "String" column = "Country"></property>
+        <property name = "phone" type = "String" column = "Phone"></property>
+        <property name = "fax" type = "String" column = "Fax"></property>
+        <property name = "homepage" type = "String" column = "Homepage"></property>
+
+    </class>
+</hibernate-mapping>

@@ -1,6 +1,8 @@
 package org.example;
 
-public class Suppliers {
+import java.io.Serializable;
+
+public class Suppliers implements Serializable {
 
     private int supplierId;
     private String companyName;
@@ -16,6 +18,21 @@ public class Suppliers {
     private String homepage;
 
     public Suppliers(){}
+    public Suppliers(String companyName, String contactName, String contactTitle, String address, String city, String region,
+                     String postalCode, String country, String phone, String fax, String homepage ){
+        this.companyName = companyName;
+        this.contactName = contactName;
+        this.contactTitle = contactTitle;
+        this.address = address;
+        this.city = city;
+        this.region = region;
+        this.postalCode = postalCode;
+        this.country = country;
+        this.phone = phone;
+        this.fax = fax;
+        this.homepage = homepage;
+
+    }
     public String getCompanyName(){
         return this.companyName;
     }
