@@ -10,7 +10,7 @@
         <property name="hibernate.connection.driver_class">com.microsoft.sqlserver.jdbc.SQLServerDriver</property>
         <property name="hibernate.connection.url">jdbc:sqlserver://localhost:1433;databaseName=Nasa</property>
         <property name="hibernate.connection.username">sa</property>
-        <property name="hibernate.connection.password">instiagra</property>
+        <property name="hibernate.connection.password">admin</property>
         <property name="hibernate.connection.encrypt">true</property>
         <property name="hibernate.connection.trustServerCertificate">true</property>
 
@@ -22,7 +22,7 @@
         <property name="hibernate.show_sql">true</property>
 
         <!-- Exporta o valida automáticamente DDL de esquema a la base de datos cuando se crea la SessionFactory -->
-        <property name="hibernate.hbm2ddl.auto">validate</property>
+        <property name="hibernate.hbm2ddl.auto">create</property>
 
         <!-- Proporciona una estrategia personalizada para el alcance de la sesión actual -->
         <property name="hibernate.current_session_context_class">thread</property>

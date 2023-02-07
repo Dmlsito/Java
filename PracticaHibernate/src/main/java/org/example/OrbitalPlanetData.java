@@ -9,13 +9,11 @@ import java.util.Set;
 @Entity
 @Table(name = "OrbitalPlanetData")
 public class OrbitalPlanetData {
-
-
     private int orbitId;
     private int planetId;
-    private Timestamp orbitDeterminationDate;
-    private Timestamp firstObservationDate;
-    private Timestamp lastObservationDate;
+    private String orbitDeterminationDate;
+    private String firstObservationDate;
+    private String lastObservationDate;
     private int dataArcInDays;
     private int observationUsed;
     private String orbitUncertainty;
@@ -29,9 +27,33 @@ public class OrbitalPlanetData {
     private String orbitalPeriod;
     private String perihelionDistanced;
     private String perihelionArgument;
-    private Set<Planet> planet;
+    private Planet planet;
 
     public OrbitalPlanetData(){}
+
+
+    public OrbitalPlanetData(int planetId, String orbitDeterminationDate, String firstObservationDate, String lastObservationDate, int dataArcInDays, int observationUsed, String orbitUncertainty, String minimunOrbitIntersection, String jupiterTisserandInvariant, String epochOsculation, String eccentricity, String semiMajorAxis, String inclination, String ascendingNodeLongitude, String orbitalPeriod, String perihelionDistanced, String perihelionArgument, Planet planet) {
+        this.planetId = planetId;
+        this.orbitDeterminationDate = orbitDeterminationDate;
+        this.firstObservationDate = firstObservationDate;
+        this.lastObservationDate = lastObservationDate;
+        this.dataArcInDays = dataArcInDays;
+        this.observationUsed = observationUsed;
+        this.orbitUncertainty = orbitUncertainty;
+        this.minimunOrbitIntersection = minimunOrbitIntersection;
+        this.jupiterTisserandInvariant = jupiterTisserandInvariant;
+        this.epochOsculation = epochOsculation;
+        this.eccentricity = eccentricity;
+        this.semiMajorAxis = semiMajorAxis;
+        this.inclination = inclination;
+        this.ascendingNodeLongitude = ascendingNodeLongitude;
+        this.orbitalPeriod = orbitalPeriod;
+        this.perihelionDistanced = perihelionDistanced;
+        this.perihelionArgument = perihelionArgument;
+        this.planet = planet;
+    }
+
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     public int getOrbitId(){
@@ -41,24 +63,24 @@ public class OrbitalPlanetData {
         this.orbitId = orbitId;
     }
     @Column(name = "OrbitDeterminationDate")
-    public Timestamp getOrbitDeterminationDate(){
+    public String getOrbitDeterminationDate(){
         return this.orbitDeterminationDate;
     }
-    public void setOrbitDeterminationDate(Timestamp orbitDeterminationDate){
+    public void setOrbitDeterminationDate(String orbitDeterminationDate){
         this.orbitDeterminationDate = orbitDeterminationDate;
     }
     @Column(name = "FirstObservationDate")
-    public Timestamp getFirstObservationDate(){
+    public String getFirstObservationDate(){
         return this.firstObservationDate;
     }
-    public void setFirstObservationDate(Timestamp firstObservationDate){
+    public void setFirstObservationDate(String firstObservationDate){
         this.firstObservationDate = firstObservationDate;
     }
     @Column(name = "LastObservationDate")
-    public Timestamp getLastObservationDate(){
+    public String getLastObservationDate(){
         return this.lastObservationDate;
     }
-    public void setLastObservationDate(Timestamp lastObservationDate){
+    public void setLastObservationDate(String lastObservationDate){
         this.lastObservationDate = lastObservationDate;
     }
     @Column(name = "DataArcInDays")
@@ -152,13 +174,14 @@ public class OrbitalPlanetData {
     public void setPerihelionArgument(String perihelionArgument){
         this.perihelionArgument = perihelionArgument;
     }
+
     @ManyToOne
-    @JoinColumn(name = "PlanetId", insertable = false, updatable = false )
-    public int getPlanetId(){
-        return this.planetId;
+    @JoinColumn(name = "planetId", insertable = false, updatable = false )
+    public Planet getPlanet(){
+        return this.planet;
     }
-    public void setPlanetId(int planetId){
-        this.planetId = planetId;
+    public void setPlanet(Planet planet){
+        this.planet = planet;
     }
 
     @Override
@@ -182,7 +205,7 @@ public class OrbitalPlanetData {
                 ", orbitalPeriod='" + orbitalPeriod + '\'' +
                 ", perihelionDistanced='" + perihelionDistanced + '\'' +
                 ", perihelionArgument='" + perihelionArgument + '\'' +
-        //", planet=" + planet +
+                 //", planet=" + planet +
                 '}';
     }
 }

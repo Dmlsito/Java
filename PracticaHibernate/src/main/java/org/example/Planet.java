@@ -9,37 +9,47 @@ import java.util.Set;
 @Entity
 @Table(name = "Planets")
 public class Planet implements Serializable {
+    private String id;
     private int idApi;
-    private int id;
-    private int neoReferenceId;
+    private String neoReferenceId;
     private String name;
     private int designation;
-    private String absoluteMagnitudeH;
+    private double absoluteMagnitudeH;
     private Set<OrbitalPlanetData> orbitalPlanetData;
 
     Planet(){}
 
+    public Planet(String id, String neoReferenceId, String name, int designation, double absoluteMagnitudeH, Set<OrbitalPlanetData> orbitalPlanetData) {
+
+        this.id = id;
+        this.neoReferenceId = neoReferenceId;
+        this.name = name;
+        this.designation = designation;
+        this.absoluteMagnitudeH = absoluteMagnitudeH;
+        this.orbitalPlanetData = orbitalPlanetData;
+    }
+
     //Getters
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    public int getId(){
-        return this.id;
-    }
-    public void setId(int id){
-        this.id = id;
-    }
-    @Column(name = "IdApi")
     public int getIdApi(){
         return this.idApi;
     }
-    public void setIdApi(int id){
-        this.idApi = id;
+    public void setIdApi(int idApi){
+        this.idApi = idApi;
+    }
+    @Column(name = "Id")
+    public  String getId(){
+        return this.id;
+    }
+    public void setId(String id){
+        this.id = id;
     }
     @Column(name = "NeoReferenceId")
-    public int getNeoReferenceId(){
+    public String getNeoReferenceId(){
         return this.neoReferenceId;
     }
-    public void setNeoReferenceId(int neoReferenceId){
+    public void setNeoReferenceId(String neoReferenceId){
         this.neoReferenceId = neoReferenceId;
     }
     @Column(name = "Name")
@@ -57,13 +67,13 @@ public class Planet implements Serializable {
         this.designation = designation;
     }
     @Column(name = "AbsoluteMagnitudeH")
-    public String getAbsoluteMagnitudeH(){
+    public double getAbsoluteMagnitudeH(){
         return this.absoluteMagnitudeH;
     }
-    public void setAbsoluteMagnitudeH(String absoluteMagnitudeH){
+    public void setAbsoluteMagnitudeH(double absoluteMagnitudeH){
         this.absoluteMagnitudeH = absoluteMagnitudeH;
     }
-    @OneToMany( mappedBy = "planet")
+    @OneToMany(mappedBy = "planet")
     public Set<OrbitalPlanetData> getOrbitalPlanetData(){
         return this.orbitalPlanetData;
     }
