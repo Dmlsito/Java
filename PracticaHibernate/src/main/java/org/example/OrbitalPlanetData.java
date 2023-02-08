@@ -9,7 +9,7 @@ import java.util.Set;
 @Entity
 @Table(name = "OrbitalPlanetData")
 public class OrbitalPlanetData {
-    private int orbitId;
+    private String orbitId;
     private int planetId;
     private String orbitDeterminationDate;
     private String firstObservationDate;
@@ -32,8 +32,8 @@ public class OrbitalPlanetData {
     public OrbitalPlanetData(){}
 
 
-    public OrbitalPlanetData(int planetId, String orbitDeterminationDate, String firstObservationDate, String lastObservationDate, int dataArcInDays, int observationUsed, String orbitUncertainty, String minimunOrbitIntersection, String jupiterTisserandInvariant, String epochOsculation, String eccentricity, String semiMajorAxis, String inclination, String ascendingNodeLongitude, String orbitalPeriod, String perihelionDistanced, String perihelionArgument, Planet planet) {
-        this.planetId = planetId;
+    public OrbitalPlanetData(String orbitId, String orbitDeterminationDate, String firstObservationDate, String lastObservationDate, int dataArcInDays, int observationUsed, String orbitUncertainty, String minimunOrbitIntersection, String jupiterTisserandInvariant, String epochOsculation, String eccentricity, String semiMajorAxis, String inclination, String ascendingNodeLongitude, String orbitalPeriod, String perihelionDistanced, String perihelionArgument, Planet planet) {
+        this.orbitId = orbitId;
         this.orbitDeterminationDate = orbitDeterminationDate;
         this.firstObservationDate = firstObservationDate;
         this.lastObservationDate = lastObservationDate;
@@ -52,15 +52,13 @@ public class OrbitalPlanetData {
         this.perihelionArgument = perihelionArgument;
         this.planet = planet;
     }
-
-
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    public int getOrbitId(){
-        return this.orbitId;
+    public int getPlanetId(){
+        return this.planetId;
     }
-    public void setOrbitId(int orbitId){
-        this.orbitId = orbitId;
+    public void setPlanetId(int planetId){
+        this.planetId = planetId;
     }
     @Column(name = "OrbitDeterminationDate")
     public String getOrbitDeterminationDate(){
@@ -68,6 +66,13 @@ public class OrbitalPlanetData {
     }
     public void setOrbitDeterminationDate(String orbitDeterminationDate){
         this.orbitDeterminationDate = orbitDeterminationDate;
+    }
+    @Column(name = "OrbitId")
+    public String getOrbitId(){
+        return this.orbitId;
+    }
+    public void setOrbitId(String orbitId){
+        this.orbitId = orbitId;
     }
     @Column(name = "FirstObservationDate")
     public String getFirstObservationDate(){
@@ -176,7 +181,7 @@ public class OrbitalPlanetData {
     }
 
     @ManyToOne
-    @JoinColumn(name = "planetId", insertable = false, updatable = false )
+    @JoinColumn(name = "planetId", insertable = false, updatable = false)
     public Planet getPlanet(){
         return this.planet;
     }

@@ -7,7 +7,6 @@ import org.hibernate.SessionFactory;
 
 
 public class HibernateUtil {
-
     public static final SessionFactory sessionFactory;
 
     static{
@@ -18,8 +17,7 @@ public class HibernateUtil {
             throw new ExceptionInInitializerError();
             }
         }
-
-    public static SessionFactory getSessionFactory(){
+        public static SessionFactory getSessionFactory(){
         return sessionFactory;
     }
    

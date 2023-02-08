@@ -4,15 +4,15 @@ import java.sql.Timestamp;
 
 public class OrbitalPlanetDataDTO {
 
-    private int orbit_id;
+    private String orbit_id;
     private int planetId;
     private String orbit_determination_date;
     private String first_observation_date;
     private String last_observation_date;
     private int data_arc_in_days;
-    private int observation_used;
+    private int observations_used;
     private String orbit_uncertainty;
-    private String minimun_orbit_intersection;
+    private String minimum_orbit_intersection;
     private String jupiter_tisserand_invariant;
     private String epoch_osculation;
     private String eccentricity;
@@ -20,20 +20,20 @@ public class OrbitalPlanetDataDTO {
     private String inclination;
     private String ascending_node_longitude;
     private String orbital_period;
-    private String perihelion_distanced;
+    private String perihelion_distance;
     private String perihelion_argument;
     private Planet planet;
 
-    public OrbitalPlanetDataDTO(int orbit_id, int planetId, String orbit_determination_date, String first_observation_date, String last_observation_date, int data_arc_in_days, int observation_used, String orbit_uncertainty, String minimun_orbit_intersection, String jupiter_tisserand_invariant, String epoch_osculation, String eccentricity, String semi_major_axis, String inclination, String ascending_node_longitude, String orbital_period) {
+    public OrbitalPlanetDataDTO(String orbit_id, String orbit_determination_date, String first_observation_date, String last_observation_date, int data_arc_in_days, int observation_used, String orbit_uncertainty, String minimun_orbit_intersection, String jupiter_tisserand_invariant, String epoch_osculation, String eccentricity, String semi_major_axis, String inclination, String ascending_node_longitude, String orbital_period, String perihelion_argument, String perihelion_distance) {
         this.orbit_id = orbit_id;
-        this.planetId = planetId;
+
         this.orbit_determination_date = orbit_determination_date;
         this.first_observation_date = first_observation_date;
         this.last_observation_date = last_observation_date;
         this.data_arc_in_days = data_arc_in_days;
-        this.observation_used = observation_used;
+        this.observations_used = observation_used;
         this.orbit_uncertainty = orbit_uncertainty;
-        this.minimun_orbit_intersection = minimun_orbit_intersection;
+        this.minimum_orbit_intersection = minimun_orbit_intersection;
         this.jupiter_tisserand_invariant = jupiter_tisserand_invariant;
         this.epoch_osculation = epoch_osculation;
         this.eccentricity = eccentricity;
@@ -41,19 +41,19 @@ public class OrbitalPlanetDataDTO {
         this.inclination = inclination;
         this.ascending_node_longitude = ascending_node_longitude;
         this.orbital_period = orbital_period;
+        this.perihelion_argument = perihelion_argument;
+        this.perihelion_distance = perihelion_distance;
 
     }
     public OrbitalPlanetDataDTO(){
 
     }
 
-    public int getOrbit_id() {
+    public String getOrbit_id() {
         return orbit_id;
     }
 
-    public int getPlanetId() {
-        return planetId;
-    }
+
 
     public String getOrbit_determination_date() {
         return orbit_determination_date;
@@ -64,7 +64,7 @@ public class OrbitalPlanetDataDTO {
     }
 
     public String getPerihelion_distanced() {
-        return perihelion_distanced;
+        return perihelion_distance ;
     }
 
     public String getPerihelion_argument() {
@@ -88,7 +88,7 @@ public class OrbitalPlanetDataDTO {
     }
 
     public int getObservation_used() {
-        return observation_used;
+        return observations_used;
     }
 
     public String getOrbit_uncertainty() {
@@ -96,7 +96,7 @@ public class OrbitalPlanetDataDTO {
     }
 
     public String getMinimun_orbit_intersection() {
-        return minimun_orbit_intersection;
+        return minimum_orbit_intersection;
     }
 
     public String getJupiter_tisserand_invariant() {
@@ -122,13 +122,12 @@ public class OrbitalPlanetDataDTO {
     public String getAscending_node_longitude() {
         return ascending_node_longitude;
     }
-
-    public void setOrbit_id(int orbit_id) {
-        this.orbit_id = orbit_id;
+    public String getPerihelion_distance(){
+        return this.perihelion_distance;
     }
 
-    public void setPlanetId(int planetId) {
-        this.planetId = planetId;
+    public void setOrbit_id(String orbit_id) {
+        this.orbit_id = orbit_id;
     }
 
     public void setOrbit_determination_date(String orbit_determination_date) {
@@ -148,7 +147,7 @@ public class OrbitalPlanetDataDTO {
     }
 
     public void setObservation_used(int observation_used) {
-        this.observation_used = observation_used;
+        this.observations_used = observation_used;
     }
 
     public void setOrbit_uncertainty(String orbit_uncertainty) {
@@ -156,7 +155,7 @@ public class OrbitalPlanetDataDTO {
     }
 
     public void setMinimun_orbit_intersection(String minimun_orbit_intersection) {
-        this.minimun_orbit_intersection = minimun_orbit_intersection;
+        this.minimum_orbit_intersection = minimun_orbit_intersection;
     }
 
     public void setJupiter_tisserand_invariant(String jupiter_tisserand_invariant) {
@@ -187,8 +186,8 @@ public class OrbitalPlanetDataDTO {
         this.orbital_period = orbital_period;
     }
 
-    public void setPerihelion_distanced(String perihelion_distanced) {
-        this.perihelion_distanced = perihelion_distanced;
+    public void setAphelion_distance(String perihelion_distanced) {
+        this.perihelion_distance  = perihelion_distanced;
     }
 
     public void setPerihelion_argument(String perihelion_argument) {
@@ -203,14 +202,14 @@ public class OrbitalPlanetDataDTO {
     public String toString() {
         return "OrbitalPlanetDataDTO{" +
                 "orbit_id=" + orbit_id +
-                ", planetId=" + planetId +
+
                 ", orbit_determination_date=" + orbit_determination_date +
                 ", first_observation_date=" + first_observation_date +
                 ", last_observation_date=" + last_observation_date +
                 ", data_arc_in_days=" + data_arc_in_days +
-                ", observation_used=" + observation_used +
+                ", observation_used=" + observations_used +
                 ", orbit_uncertainty='" + orbit_uncertainty + '\'' +
-                ", minimun_orbit_intersection='" + minimun_orbit_intersection + '\'' +
+                ", minimun_orbit_intersection='" + minimum_orbit_intersection + '\'' +
                 ", jupiter_tisserand_invariant='" + jupiter_tisserand_invariant + '\'' +
                 ", epoch_osculation='" + epoch_osculation + '\'' +
                 ", eccentricity='" + eccentricity + '\'' +
@@ -218,7 +217,7 @@ public class OrbitalPlanetDataDTO {
                 ", inclination='" + inclination + '\'' +
                 ", ascending_node_longitude='" + ascending_node_longitude + '\'' +
                 ", orbital_period='" + orbital_period + '\'' +
-                ", perihelion_distanced='" + perihelion_distanced + '\'' +
+                ", perihelion_distanced='" + perihelion_distance  + '\'' +
                 ", perihelion_argument='" + perihelion_argument + '\'' +
                 ", planet=" + planet +
                 '}';

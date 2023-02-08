@@ -9,19 +9,20 @@ import java.util.Set;
 @Entity
 @Table(name = "Planets")
 public class Planet implements Serializable {
-    private String id;
-    private int idApi;
+    private String idApi;
+    private int id;
     private String neoReferenceId;
     private String name;
     private int designation;
     private double absoluteMagnitudeH;
     private Set<OrbitalPlanetData> orbitalPlanetData;
 
-    Planet(){}
 
-    public Planet(String id, String neoReferenceId, String name, int designation, double absoluteMagnitudeH, Set<OrbitalPlanetData> orbitalPlanetData) {
+    public Planet(){}
 
-        this.id = id;
+    public Planet(String idApi, String neoReferenceId, String name, int designation, double absoluteMagnitudeH, Set<OrbitalPlanetData> orbitalPlanetData) {
+
+        this.idApi = idApi;
         this.neoReferenceId = neoReferenceId;
         this.name = name;
         this.designation = designation;
@@ -32,18 +33,18 @@ public class Planet implements Serializable {
     //Getters
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    public int getIdApi(){
-        return this.idApi;
-    }
-    public void setIdApi(int idApi){
-        this.idApi = idApi;
-    }
-    @Column(name = "Id")
-    public  String getId(){
+    public int getId(){
         return this.id;
     }
-    public void setId(String id){
+    public void setId(int id){
         this.id = id;
+    }
+    @Column(name = "IdApi")
+    public  String getIdApi(){
+        return this.idApi;
+    }
+    public void setIdApi(String id){
+        this.idApi = idApi;
     }
     @Column(name = "NeoReferenceId")
     public String getNeoReferenceId(){
@@ -83,12 +84,13 @@ public class Planet implements Serializable {
 
     @Override
     public String toString() {
-        return "Planet{" +
-                "id=" + id +
-                ", neoReferenceId=" + neoReferenceId +
+        return
+                "idApi='" + idApi + '\'' +
+                        "," +
+                        " neoReferenceId='" + neoReferenceId + '\'' +
+
                 ", name='" + name + '\'' +
                 ", designation=" + designation +
-                ", absoluteMagnitudeH='" + absoluteMagnitudeH + '\'' +
-                '}';
+                ", absoluteMagnitudeH=" + absoluteMagnitudeH;
     }
 }
