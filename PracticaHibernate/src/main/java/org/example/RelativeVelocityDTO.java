@@ -1,16 +1,16 @@
 package org.example;
 
-public class RelativeVelocity {
+public class RelativeVelocityDTO {
 
     private double kilometers_per_seconds;
     private double kilometers_per_hour;
     private double miles_per_hour;
-    private ApproachData approachData;
+    private ApproachDataDTO approachData;
 
 
-    public RelativeVelocity(){}
+    public RelativeVelocityDTO(){}
 
-    public RelativeVelocity(double kilometers_per_seconds, double kilometers_per_hour, double miles_per_hour, ApproachData approachData) {
+    public RelativeVelocityDTO(double kilometers_per_seconds, double kilometers_per_hour, double miles_per_hour, ApproachDataDTO approachData) {
         this.kilometers_per_seconds = kilometers_per_seconds;
         this.kilometers_per_hour = kilometers_per_hour;
         this.miles_per_hour = miles_per_hour;
@@ -39,6 +39,14 @@ public class RelativeVelocity {
 
     public void setMiles_per_hour(double miles_per_hour) {
         this.miles_per_hour = miles_per_hour;
+    }
+
+    public ApproachDataDTO getApproachData() {
+        return approachData;
+    }
+
+    public void setApproachData(ApproachDataDTO approachData) {
+        this.approachData = approachData;
     }
 
     @Override

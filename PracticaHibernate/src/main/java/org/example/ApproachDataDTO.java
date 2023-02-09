@@ -3,19 +3,19 @@ package org.example;
 
 import java.util.Set;
 
-public class ApproachData {
+public class ApproachDataDTO {
     private String close_approach_date;
     private String close_approach_full;
     private String epoch_data_close_approach;
-    private Set<RelativeVelocity> relative_velocity;
+    private Set<RelativeVelocityDTO> relative_velocity;
 
-    public ApproachData(String close_approach_date, String close_approach_full, String epoch_data_close_approach, Set<RelativeVelocity> relative_velocity) {
+    public ApproachDataDTO(String close_approach_date, String close_approach_full, String epoch_data_close_approach, Set<RelativeVelocityDTO> relative_velocity) {
         this.close_approach_date = close_approach_date;
         this.close_approach_full = close_approach_full;
         this.epoch_data_close_approach = epoch_data_close_approach;
         this.relative_velocity = relative_velocity;
     }
-    public ApproachData(){}
+    public ApproachDataDTO(){}
 
     public String getClose_approach_date() {
         return close_approach_date;
@@ -29,7 +29,7 @@ public class ApproachData {
         return epoch_data_close_approach;
     }
 
-    public Set<RelativeVelocity> getRelative_velocity() {
+    public Set<RelativeVelocityDTO> getRelative_velocity() {
         return relative_velocity;
     }
 
@@ -45,7 +45,7 @@ public class ApproachData {
         this.epoch_data_close_approach = epoch_data_close_approach;
     }
 
-    public void setRelative_velocity(Set<RelativeVelocity> relative_velocity) {
+    public void setRelative_velocity(Set<RelativeVelocityDTO> relative_velocity) {
         this.relative_velocity = relative_velocity;
     }
 

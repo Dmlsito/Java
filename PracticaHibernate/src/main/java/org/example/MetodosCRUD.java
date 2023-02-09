@@ -75,7 +75,6 @@ public class MetodosCRUD {
         }
         transaction.commit();
         sesion.close();
-
     }
 
 

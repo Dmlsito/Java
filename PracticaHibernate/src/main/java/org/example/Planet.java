@@ -4,6 +4,7 @@ package org.example;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.util.List;
 import java.util.Set;
 
 @Entity
@@ -16,18 +17,20 @@ public class Planet implements Serializable {
     private int designation;
     private double absoluteMagnitudeH;
     private Set<OrbitalPlanetData> orbitalPlanetData;
+    private List<ApproachDataDTO> listApproach;
 
 
     public Planet(){}
 
-    public Planet(String idApi, String neoReferenceId, String name, int designation, double absoluteMagnitudeH, Set<OrbitalPlanetData> orbitalPlanetData) {
-
+    public Planet(String idApi, String neoReferenceId, String name, int designation, double absoluteMagnitudeH, Set<OrbitalPlanetData> orbitalPlanetData, List<ApproachDataDTO> listApproach) {
         this.idApi = idApi;
+
         this.neoReferenceId = neoReferenceId;
         this.name = name;
         this.designation = designation;
         this.absoluteMagnitudeH = absoluteMagnitudeH;
         this.orbitalPlanetData = orbitalPlanetData;
+        this.listApproach = listApproach;
     }
 
     //Getters
@@ -82,15 +85,25 @@ public class Planet implements Serializable {
         this.orbitalPlanetData = orbitalPlanetData;
     }
 
+    public List<ApproachDataDTO> getListApproach() {
+        return listApproach;
+    }
+
+    public void setListApproach(List<ApproachDataDTO> listApproach) {
+        this.listApproach = listApproach;
+    }
+
     @Override
     public String toString() {
-        return
+        return "Planet{" +
                 "idApi='" + idApi + '\'' +
-                        "," +
-                        " neoReferenceId='" + neoReferenceId + '\'' +
-
+                ", id=" + id +
+                ", neoReferenceId='" + neoReferenceId + '\'' +
                 ", name='" + name + '\'' +
                 ", designation=" + designation +
-                ", absoluteMagnitudeH=" + absoluteMagnitudeH;
+                ", absoluteMagnitudeH=" + absoluteMagnitudeH +
+                ", orbitalPlanetData=" + orbitalPlanetData +
+                ", listApproach=" + listApproach +
+                '}';
     }
 }
