@@ -38,6 +38,18 @@ public class MetodosCRUD {
         transaction.commit();
         sesion.close();
     }
+
+    /*Inserts ApproachData in the BBDD
+    public  void insertApproachData(){
+        SessionFactory sessionFactory = HibernateUtil.getSessionFactory();
+        Session sesion = sessionFactory.getCurrentSession();
+
+        Transaction transaction = sesion.beginTransaction();
+        sesion.save();
+        transaction.commit();
+        sesion.close();
+    }*/
+
     //Recover all data planets
     public void selectAll(){
         SessionFactory sessionFactory = HibernateUtil.getSessionFactory();

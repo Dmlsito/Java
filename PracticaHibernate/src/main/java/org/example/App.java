@@ -31,9 +31,7 @@ public class App
         metodos.selectPlanet(name);\
 
          */
-
     }
-
     public static void insertData(){
         MetodosCRUD metodos = new MetodosCRUD();
         HttpURLConnection connection = null;
@@ -66,21 +64,18 @@ public class App
                 //We parse and add the data to the Planet object
                 PlanetDTO planetParseado = new Gson().fromJson(resultado, PlanetDTO.class);
 
-                Planet planet = new Planet(planetParseado.getId(), planetParseado.getNeo_reference_id(), planetParseado.getName(), planetParseado.getDesignation(), planetParseado.getAbsolute_magnitude_h(), planetParseado.getOrbitalPlanetData(), planetParseado.getListApproachData());
-                System.out.println(planetParseado.getListApproachData());
-                //metodos.insertPlanets(planet);
+                Planet planet = new Planet(planetParseado.getId(), planetParseado.getNeo_reference_id(), planetParseado.getName(), planetParseado.getDesignation(), planetParseado.getAbsolute_magnitude_h(), planetParseado.getOrbitalPlanetData());
 
+                metodos.insertPlanets(planet);
 
                 //We parse and add the data to the OrbitalPlanetData object
                 OrbitalPlanetDataDTO data = (new Gson().fromJson( resultado.getAsJsonObject().get("orbital_data").getAsJsonObject(), OrbitalPlanetDataDTO.class));
                 OrbitalPlanetData dataPlanet = new OrbitalPlanetData(data.getOrbit_id(), data.getOrbit_determination_date(), data.getFirst_observation_date(), data.getLast_observation_date(), data.getData_arc_in_days(), data.getObservation_used(), data.getOrbit_uncertainty(), data.getMinimun_orbit_intersection(), data.getJupiter_tisserand_invariant(), data.getEpoch_osculation(), data.getEccentricity(), data.getSemi_major_axis(), data.getInclination(), data.getAscending_node_longitude(), data.getOrbital_period(), data.getPerihelion_distanced(), data.getPerihelion_argument(), data.getPlanet());
-                //metodos.insertOrbitalPlanetsData(dataPlanet);
+                metodos.insertOrbitalPlanetsData(dataPlanet);
 
 
 
             }
-
-
 
         } catch (MalformedURLException e) {
             e.printStackTrace();

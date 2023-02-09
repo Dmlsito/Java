@@ -17,12 +17,12 @@ public class Planet implements Serializable {
     private int designation;
     private double absoluteMagnitudeH;
     private Set<OrbitalPlanetData> orbitalPlanetData;
-    private List<ApproachDataDTO> listApproach;
+
 
 
     public Planet(){}
 
-    public Planet(String idApi, String neoReferenceId, String name, int designation, double absoluteMagnitudeH, Set<OrbitalPlanetData> orbitalPlanetData, List<ApproachDataDTO> listApproach) {
+    public Planet(String idApi, String neoReferenceId, String name, int designation, double absoluteMagnitudeH, Set<OrbitalPlanetData> orbitalPlanetData) {
         this.idApi = idApi;
 
         this.neoReferenceId = neoReferenceId;
@@ -30,7 +30,7 @@ public class Planet implements Serializable {
         this.designation = designation;
         this.absoluteMagnitudeH = absoluteMagnitudeH;
         this.orbitalPlanetData = orbitalPlanetData;
-        this.listApproach = listApproach;
+
     }
 
     //Getters
@@ -85,13 +85,6 @@ public class Planet implements Serializable {
         this.orbitalPlanetData = orbitalPlanetData;
     }
 
-    public List<ApproachDataDTO> getListApproach() {
-        return listApproach;
-    }
-
-    public void setListApproach(List<ApproachDataDTO> listApproach) {
-        this.listApproach = listApproach;
-    }
 
     @Override
     public String toString() {
@@ -103,7 +96,7 @@ public class Planet implements Serializable {
                 ", designation=" + designation +
                 ", absoluteMagnitudeH=" + absoluteMagnitudeH +
                 ", orbitalPlanetData=" + orbitalPlanetData +
-                ", listApproach=" + listApproach +
+
                 '}';
     }
 }
