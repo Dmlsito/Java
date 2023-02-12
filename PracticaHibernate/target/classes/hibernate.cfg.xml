@@ -30,6 +30,7 @@
         <!-- Entidades a mapear -->
         <mapping class="org.example.OrbitalPlanetData"/>
         <mapping class="org.example.Planet"/>
+        <mapping class = "org.example.ApproachData"/>
 
     </session-factory>
 </hibernate-configuration>

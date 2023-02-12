@@ -61,12 +61,8 @@ public class MetodosBaseDatos {
         Transaction transaction = session.beginTransaction();
 
 
-        if(comprobarJugador(player)){
-            session.save(player);
-            System.out.println("Jugador insertado con éxito");
-        }else{
-            System.out.println("Jugador NO insertado, Jugador ingresado ya existe en la base de datos");
-        }
+        session.save(player);
+
 
         transaction.commit();
         session.close();

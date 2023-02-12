@@ -10,10 +10,10 @@ import java.util.Set;
 public class Team implements Serializable {
 
 
+    private int idTeam;
+
+
     private int id;
-
-
-    private int id2;
 
     private String abbreviation;
 
@@ -32,8 +32,8 @@ public class Team implements Serializable {
     public Team(){
 
     }
-    public Team(int id, String abbreviation, String city, String conference, String division, String fullname, String name) {
-        this.id = id;
+    public Team(int idTeam, String abbreviation, String city, String conference, String division, String fullname, String name) {
+        this.idTeam = idTeam;
         this.abbreviation = abbreviation;
         this.city = city;
         this.conference = conference;
@@ -44,21 +44,23 @@ public class Team implements Serializable {
     }
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    public int getId2() {
-        return id2;
-    }
-
-    public void setId2(int id2) {
-        this.id2 = id2;
-    }
-    //Id del equipo
+    @GeneratedValue()
     public int getId() {
         return id;
     }
 
+
     public void setId(int id) {
         this.id = id;
+    }
+    //Id del equipo
+    @Column( name = "idTeam")
+    public int getIdTeam() {
+        return idTeam;
+    }
+
+    public void setIdTeam(int idTeam) {
+        this.idTeam = idTeam;
     }
 
     @Column(name="Abbreviation")
@@ -128,7 +130,7 @@ public class Team implements Serializable {
     public String toString() {
         return "Team{" +
                 "id=" + id +
-                ", id2=" + id2 +
+                ", idTeam=" + idTeam +
                 ", abbreviation='" + abbreviation + '\'' +
                 ", city='" + city + '\'' +
                 ", conference='" + conference + '\'' +

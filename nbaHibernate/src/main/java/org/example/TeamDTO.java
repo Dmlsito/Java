@@ -25,6 +25,17 @@ public class TeamDTO {
     public TeamDTO() {
     }
 
+    public TeamDTO(int id, String abbreviation, String city, String conference, String division, String full_name, String name, Set<Player> player) {
+        this.id = id;
+        this.abbreviation = abbreviation;
+        this.city = city;
+        this.conference = conference;
+        this.division = division;
+        this.full_name = full_name;
+        this.name = name;
+        this.player = player;
+    }
+
     public int getId() {
         return id;
     }

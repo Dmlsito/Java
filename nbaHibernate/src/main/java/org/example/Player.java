@@ -14,7 +14,9 @@ public class Player implements Serializable {
 
     // id es la clave que yo duplico para autoincrementarla
     private int id;
-    private int autoincrementalPlayer;
+    private int idPlayer;
+
+    int idTeam;
     private String firstName;
 
     private String lastName;
@@ -35,8 +37,9 @@ public class Player implements Serializable {
     public Player() {
     }
 
-    public Player(int id, String firstName, String lastName, String position, Integer heightFeet, Integer heightInches, Integer weightPounds, Team team) {
-        this.id = id;
+    public Player(int idPlayer, int idTeam, String firstName, String lastName, String position, Integer heightFeet, Integer heightInches, Integer weightPounds, Team team) {
+        this.idPlayer = idPlayer;
+        this.idTeam = idTeam;
         this.firstName = firstName;
         this.lastName = lastName;
         this.position = position;
@@ -52,17 +55,25 @@ public class Player implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    public int getAutoincrementalPlayer() {
-        return autoincrementalPlayer;
+    public int getId() {
+        return id;
     }
 
-    public void setAutoincrementalPlayer(int autoincrementalPlayer) {
-        this.autoincrementalPlayer = autoincrementalPlayer;
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public int getIdTeam() {
+        return idTeam;
+    }
+
+    public void setIdTeam(int idTeam) {
+        this.idTeam = idTeam;
     }
 
     @Column( name = "IdPlayer")
-    public int getId() {
-        return id;
+    public int getIdPlayer() {
+        return idPlayer;
     }
 
     public String getFirstName() {
@@ -85,8 +96,8 @@ public class Player implements Serializable {
         return weightPounds;
     }
 
-    public void setId(int id) {
-        this.id = id;
+    public void setIdPlayer(int idPlayer) {
+        this.idPlayer = idPlayer;
     }
 
     public void setFirstName(String firstName) {

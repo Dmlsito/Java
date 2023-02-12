@@ -10,7 +10,8 @@ import java.util.Set;
 @Table(name = "OrbitalPlanetData")
 public class OrbitalPlanetData {
     private String orbitId;
-    private int planetId;
+    private int Id;
+    private String planetId;
     private String orbitDeterminationDate;
     private String firstObservationDate;
     private String lastObservationDate;
@@ -31,9 +32,9 @@ public class OrbitalPlanetData {
 
     public OrbitalPlanetData(){}
 
-
-    public OrbitalPlanetData(String orbitId, String orbitDeterminationDate, String firstObservationDate, String lastObservationDate, int dataArcInDays, int observationUsed, String orbitUncertainty, String minimunOrbitIntersection, String jupiterTisserandInvariant, String epochOsculation, String eccentricity, String semiMajorAxis, String inclination, String ascendingNodeLongitude, String orbitalPeriod, String perihelionDistanced, String perihelionArgument, Planet planet) {
+    public OrbitalPlanetData(String orbitId, String planetId, String orbitDeterminationDate, String firstObservationDate, String lastObservationDate, int dataArcInDays, int observationUsed, String orbitUncertainty, String minimunOrbitIntersection, String jupiterTisserandInvariant, String epochOsculation, String eccentricity, String semiMajorAxis, String inclination, String ascendingNodeLongitude, String orbitalPeriod, String perihelionDistanced, String perihelionArgument, Planet planet) {
         this.orbitId = orbitId;
+        this.planetId = planetId;
         this.orbitDeterminationDate = orbitDeterminationDate;
         this.firstObservationDate = firstObservationDate;
         this.lastObservationDate = lastObservationDate;
@@ -54,11 +55,11 @@ public class OrbitalPlanetData {
     }
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    public int getPlanetId(){
-        return this.planetId;
+    public int getId(){
+        return this.Id;
     }
-    public void setPlanetId(int planetId){
-        this.planetId = planetId;
+    public void setId(int Id){
+        this.Id = Id;
     }
     @Column(name = "OrbitDeterminationDate")
     public String getOrbitDeterminationDate(){
@@ -158,6 +159,15 @@ public class OrbitalPlanetData {
     public void setAscendingNodeLongitude(String ascendingNodeLongitude){
         this.ascendingNodeLongitude = ascendingNodeLongitude;
     }
+
+    public String getPlanetId() {
+        return planetId;
+    }
+
+    public void setPlanetId(String planetId) {
+        this.planetId = planetId;
+    }
+
     @Column(name = "OrbitalPeriod")
     public String getOrbitalPeriod(){
         return this.orbitalPeriod;
@@ -181,7 +191,7 @@ public class OrbitalPlanetData {
     }
 
     @ManyToOne
-    @JoinColumn(name = "planetId", insertable = false, updatable = false)
+    @JoinColumn(name = "Id", insertable = false, updatable = false)
     public Planet getPlanet(){
         return this.planet;
     }
@@ -192,11 +202,11 @@ public class OrbitalPlanetData {
     @Override
     public String toString() {
         return "OrbitalPlanetData{" +
-                "orbitId=" + orbitId +
-                ", planetId=" + planetId +
-                ", orbitDeterminationDate=" + orbitDeterminationDate +
-                ", firstObservationDate=" + firstObservationDate +
-                ", lastObservationDate=" + lastObservationDate +
+                "orbitId='" + orbitId + '\'' +
+                ", planetId='" + planetId + '\'' +
+                ", orbitDeterminationDate='" + orbitDeterminationDate + '\'' +
+                ", firstObservationDate='" + firstObservationDate + '\'' +
+                ", lastObservationDate='" + lastObservationDate + '\'' +
                 ", dataArcInDays=" + dataArcInDays +
                 ", observationUsed=" + observationUsed +
                 ", orbitUncertainty='" + orbitUncertainty + '\'' +
@@ -210,7 +220,7 @@ public class OrbitalPlanetData {
                 ", orbitalPeriod='" + orbitalPeriod + '\'' +
                 ", perihelionDistanced='" + perihelionDistanced + '\'' +
                 ", perihelionArgument='" + perihelionArgument + '\'' +
-                 //", planet=" + planet +
+        //", planet=" + planet +
                 '}';
     }
 }

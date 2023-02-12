@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<picos>
+
+    <pico Nombre = "Teide">
+        <provincia>Santa Cruz de Tenerife</provincia>
+        <prominencia>3718</prominencia>
+
+    </pico>
+    <pico Nombre = "Mulhacen">
+        <provincia>Granada</provincia>
+        <prominencia>3285</prominencia>
+
+    </pico>
+    <pico Nombre = "Aneto">
+        <provincia>Huesca</provincia>
+        <prominencia>2812</prominencia>
+    </pico>
+
+
+</picos>

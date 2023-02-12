@@ -6,29 +6,25 @@ import java.util.List;
 import java.util.Set;
 
 public class PlanetDTO {
-
     private String id;
-
     private String neo_reference_id;
     private String name;
     private int designation;
     private double absolute_magnitude_h;
     private Set<OrbitalPlanetData> orbitalPlanetData;
-
+    private List<ApproachDataDTO> close_approach_data;
 
 
     public PlanetDTO(){}
-
-    public PlanetDTO(String id, String neo_reference_id, String name, int designation, double absolute_magnitude_h, Set<OrbitalPlanetData> orbitalPlanetData ) {
+    public PlanetDTO(String id, String neo_reference_id, String name, int designation, double absolute_magnitude_h, Set<OrbitalPlanetData> orbitalPlanetData, List<ApproachDataDTO> close_approach_data) {
         this.id = id;
         this.neo_reference_id = neo_reference_id;
         this.name = name;
         this.designation = designation;
         this.absolute_magnitude_h = absolute_magnitude_h;
         this.orbitalPlanetData = orbitalPlanetData;
-
+        this.close_approach_data = close_approach_data;
     }
-
     public String getId(){
         return this.id;
     }
@@ -43,6 +39,10 @@ public class PlanetDTO {
     }
     public double getAbsolute_magnitude_h(){
         return this.absolute_magnitude_h;
+    }
+
+    public List<ApproachDataDTO> getClose_approach_data() {
+        return close_approach_data;
     }
 
     public Set<OrbitalPlanetData> getOrbitalPlanetData() {
@@ -73,6 +73,9 @@ public class PlanetDTO {
         this.orbitalPlanetData = orbitalPlanetData;
     }
 
+    public void setClose_approach_data(List<ApproachDataDTO> close_approach_data) {
+        this.close_approach_data = close_approach_data;
+    }
 
 
     @Override

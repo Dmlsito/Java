@@ -29,7 +29,7 @@ public class MetodosCRUD {
 
     }
     //Inserts OrbitalPlanetsData in the BBDD
-    public  void insertOrbitalPlanetsData(OrbitalPlanetData data){
+    public void insertOrbitalPlanetsData(OrbitalPlanetData data){
         SessionFactory sessionFactory = HibernateUtil.getSessionFactory();
         Session sesion = sessionFactory.getCurrentSession();
 
@@ -38,23 +38,21 @@ public class MetodosCRUD {
         transaction.commit();
         sesion.close();
     }
-
-    /*Inserts ApproachData in the BBDD
-    public  void insertApproachData(){
+    public void insertApproachData(ApproachData approachData){
         SessionFactory sessionFactory = HibernateUtil.getSessionFactory();
         Session sesion = sessionFactory.getCurrentSession();
 
         Transaction transaction = sesion.beginTransaction();
-        sesion.save();
+        sesion.save(approachData);
         transaction.commit();
         sesion.close();
-    }*/
+    }
+
 
     //Recover all data planets
     public void selectAll(){
         SessionFactory sessionFactory = HibernateUtil.getSessionFactory();
         Session sesion = sessionFactory.getCurrentSession();
-
         Transaction transaction = sesion.beginTransaction();
         Query<Planet> query = sesion.createNativeQuery("SELECT * FROM Planets", Planet.class);
         List<Planet> listaPlanetas = query.list();

@@ -69,7 +69,7 @@ public class RecuperarAPI {
                    metodo.insertarEquipo(team);
 
                     PlayerDTO playerRecuperado = new Gson().fromJson(resultado, PlayerDTO.class);
-                    Player player = new Player(playerRecuperado.getId(), playerRecuperado.getFirst_name(), playerRecuperado.getLast_name(), playerRecuperado.getPosition(), playerRecuperado.getHeight_feet(), playerRecuperado.getHeight_inches(), playerRecuperado.getWeight_pounds(), playerRecuperado.getTeam());
+                    Player player = new Player(playerRecuperado.getId(), team.getIdTeam(),  playerRecuperado.getFirst_name(), playerRecuperado.getLast_name(), playerRecuperado.getPosition(), playerRecuperado.getHeight_feet(), playerRecuperado.getHeight_inches(), playerRecuperado.getWeight_pounds(), playerRecuperado.getTeam());
                     //System.out.println(player.getTeam());
 
                     //System.out.println(team.getName());

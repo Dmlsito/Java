@@ -202,7 +202,6 @@ public class OrbitalPlanetDataDTO {
     public String toString() {
         return "OrbitalPlanetDataDTO{" +
                 "orbit_id=" + orbit_id +
-
                 ", orbit_determination_date=" + orbit_determination_date +
                 ", first_observation_date=" + first_observation_date +
                 ", last_observation_date=" + last_observation_date +

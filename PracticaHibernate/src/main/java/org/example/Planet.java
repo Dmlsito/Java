@@ -1,7 +1,4 @@
 package org.example;
-
-
-
 import javax.persistence.*;
 import java.io.Serializable;
 import java.util.List;
@@ -17,20 +14,18 @@ public class Planet implements Serializable {
     private int designation;
     private double absoluteMagnitudeH;
     private Set<OrbitalPlanetData> orbitalPlanetData;
-
-
+    private List<ApproachDataDTO> listApproachData;
 
     public Planet(){}
 
-    public Planet(String idApi, String neoReferenceId, String name, int designation, double absoluteMagnitudeH, Set<OrbitalPlanetData> orbitalPlanetData) {
+    public Planet(String idApi, String neoReferenceId, String name, int designation, double absoluteMagnitudeH, Set<OrbitalPlanetData> orbitalPlanetData, List<ApproachDataDTO> listApproachData) {
         this.idApi = idApi;
-
         this.neoReferenceId = neoReferenceId;
         this.name = name;
         this.designation = designation;
         this.absoluteMagnitudeH = absoluteMagnitudeH;
         this.orbitalPlanetData = orbitalPlanetData;
-
+        this.listApproachData = listApproachData;
     }
 
     //Getters
@@ -84,8 +79,16 @@ public class Planet implements Serializable {
     public void setOrbitalPlanetData(Set<OrbitalPlanetData> orbitalPlanetData){
         this.orbitalPlanetData = orbitalPlanetData;
     }
+/*
+    @OneToMany(mappedBy = "planet")
+    public List<ApproachDataDTO> getListApproachData() {
+        return listApproachData;
+    }
 
-
+ */
+    public void setListApproachData(List<ApproachDataDTO> listApproachData) {
+        this.listApproachData = listApproachData;
+    }
     @Override
     public String toString() {
         return "Planet{" +
@@ -96,7 +99,7 @@ public class Planet implements Serializable {
                 ", designation=" + designation +
                 ", absoluteMagnitudeH=" + absoluteMagnitudeH +
                 ", orbitalPlanetData=" + orbitalPlanetData +
-
+                ", listApproachData=" + listApproachData +
                 '}';
     }
 }
